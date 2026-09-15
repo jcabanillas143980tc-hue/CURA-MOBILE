@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "CURA Patient Mobile",
+    "slug": "cura-patient-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.cura.patientapp"
+    },
+    "android": {
+      "package": "com.cura.patientapp"
+    },
+    "plugins": [
+      "expo-dev-client"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3f6cb1b1-5aed-413a-a238-f0cc48b0f798"
+      }
+    }
+  }
+}
