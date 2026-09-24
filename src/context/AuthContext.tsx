@@ -10,6 +10,7 @@ type AuthContextType = {
   login: (email: string, password: string) => Promise<void>;
   register: (name: string, email: string, phone: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  loginAsDevPreviewUser: () => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -40,8 +41,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(null);
   };
 
+  // TEMPORARY: lets you preview Home/Queue/Records/etc. screens before the
+  // Laravel backend exists. Sets a fake user with no real token, so any
+  // screen that calls the API will still fail — only useful for looking at
+  // static UI. Remove this once /login actually works against your backend.
+  const loginAsDevPreviewUser = () => {
+    setUser({ id: 'dev-preview', name: 'Juan Dela Cruz', email: 'preview@cura.dev' });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, register, logout, loginAsDevPreviewUser }}>
       {children}
     </AuthContext.Provider>
   );

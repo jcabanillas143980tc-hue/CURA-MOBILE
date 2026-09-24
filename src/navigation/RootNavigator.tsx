@@ -6,11 +6,13 @@ import AuthNavigator from './AuthNavigator';
 import MainTabNavigator from './MainTabNavigator';
 import BookingFlowNavigator from './BookingFlowNavigator';
 import NotificationsScreen from '../screens/Notifications/NotificationsScreen';
+import QueueScreen from '../screens/Queue/QueueScreen';
 
 export type RootStackParamList = {
   MainTabs: undefined;
   BookingFlow: undefined;
   Notifications: undefined;
+  Queue: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -18,7 +20,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function RootNavigator() {
   const { user, isLoading } = useAuth();
 
-  if (isLoading) return null; // TODO: splash screen
+  if (isLoading) return null;
 
   return (
     <NavigationContainer>
@@ -27,6 +29,7 @@ export default function RootNavigator() {
           <Stack.Screen name="MainTabs" component={MainTabNavigator} />
           <Stack.Screen name="BookingFlow" component={BookingFlowNavigator} />
           <Stack.Screen name="Notifications" component={NotificationsScreen} options={{ headerShown: true }} />
+          <Stack.Screen name="Queue" component={QueueScreen} />
         </Stack.Navigator>
       ) : (
         <AuthNavigator />
