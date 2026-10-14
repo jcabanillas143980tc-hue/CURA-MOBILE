@@ -3,9 +3,6 @@ import { View, Text, ScrollView, TouchableOpacity, TextInput, StyleSheet } from 
 import { colors, spacing, radius } from '../../constants/colors';
 import { getMedicalRecords } from '../../api/records';
 
-// Mirrors: id="screen-records" — search-box, recordsTimeline (expandable
-// rec-card items with doctor notes, vitals, prescribed medication)
-
 type Vital = { label: string; value: string };
 type MedicalRecord = {
   id: string;
@@ -161,7 +158,13 @@ export default function RecordsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.bg },
-  header: { backgroundColor: colors.blueMid, padding: spacing.lg, paddingTop: spacing.xl },
+  header: {
+    backgroundColor: colors.blueMid,
+    padding: spacing.lg,
+    paddingTop: spacing.xl,
+    borderBottomLeftRadius: radius.xl,
+    borderBottomRightRadius: radius.xl,
+  },
   headerTitle: { color: '#fff', fontSize: 20, fontWeight: '800' },
   headerSub: { color: 'rgba(255,255,255,0.9)', fontSize: 12.5, marginTop: 2 },
   searchBox: {

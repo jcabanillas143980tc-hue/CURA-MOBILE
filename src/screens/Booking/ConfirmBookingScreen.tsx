@@ -42,7 +42,7 @@ export default function ConfirmBookingScreen() {
         </View>
       </View>
 
-      <ScrollView style={styles.body} contentContainerStyle={{ paddingBottom: 100 }}>
+      <ScrollView style={styles.body} contentContainerStyle={{ paddingBottom: 140 }}>
         <View style={styles.card}>
           <Text style={styles.aptLabel}>Booking Summary</Text>
           <View style={styles.docRow}>
